@@ -1,0 +1,35 @@
+% for (index, host) in enumerate(bk_host_list):
+<tr>
+    <td style="width: 70px;">${index}</td>
+    <td>${host.get('bk_host_innerip')}</td>
+    <td class="label-log">${host.get('stat_info', '--')}</td>
+    <td>${host.get('stat_time', '--')}</td>
+    <td>${host.get('bk_set_name')}</td>
+    <td>${host.get('bk_module_name')}</td>
+    <td>${host.get('bk_cloud_name')}</td>
+    <td>${host.get('bk_os_type')}</td>
+    <td>
+        <a data-ip="${host.get('bk_host_innerip')}"
+           data-cloud="${host.get('bk_cloud_id')}"
+           class="btn btn-xs btn-success check">
+            <i class="glyphicon glyphicon-search"></i>
+        </a>
+        <a data-ip="${host.get('bk_host_innerip')}"
+           data-cloud="${host.get('bk_cloud_id')}"
+           class="btn btn-xs btn-warning check-add">
+            <i class="glyphicon glyphicon-plus"></i>
+        </a>
+        <a data-ip="${host.get('bk_host_innerip')}"
+           data-cloud="${host.get('bk_cloud_id')}"
+           class="btn btn-xs btn-danger check-del">
+            <i class="glyphicon glyphicon-minus"></i>
+        </a>
+    </td>
+</tr>
+% endfor
+
+% if not bk_host_list:
+<tr>
+    <td colspan="9" style="text-align: center;padding:20px;">没有查到相关主机</td>
+</tr>
+% endif
